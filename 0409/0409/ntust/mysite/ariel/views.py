@@ -1,6 +1,7 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-
+from django.shortcuts import render_to_response
 # Create your views here.
+from .models import Restaurant, Food
+
 def index(request):
-	return HttpResponse("Hello Mom.")
+	restaurants = Restaurant.objects.all()
+	return render_to_response('ariel/menu.html',locals())
